@@ -2,6 +2,7 @@ const formEl = document.querySelector(".form");
 const inputEl = document.querySelector(".input");
 const ulEl = document.querySelector(".list");
 let list = JSON.parse(localStorage.getItem("list"));
+const btnEl = document.querySelector(".btn");
 
 list.forEach((task) => {
   toDoList(task);
@@ -12,8 +13,14 @@ formEl.addEventListener("submit", (event) => {
   toDoList();
 });
 
+btnEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  toDoList();
+});
+
 function toDoList(task) {
   let newTask = inputEl.value;
+
   if (task) {
     newTask = task.name;
   }

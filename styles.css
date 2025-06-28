@@ -75,6 +75,22 @@ body {
   color: darkgray;
 }
 
+button {
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
 @media (max-width: 500px) {
   .form {
     width: 305px;
