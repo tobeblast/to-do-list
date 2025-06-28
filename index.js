@@ -1,7 +1,7 @@
 const formEl = document.querySelector(".form");
 const inputEl = document.querySelector(".input");
 const ulEl = document.querySelector(".list");
-let list = JSON.parse(localStorage.getItem("list"));
+let list = JSON.parse(localStorage.getItem("list")) || [];
 const btnEl = document.querySelector(".btn");
 
 list.forEach((task) => {
@@ -20,6 +20,10 @@ btnEl.addEventListener("click", (e) => {
 
 function toDoList(task) {
   let newTask = inputEl.value;
+  if (!task && inputEl.value.trim() === "") {
+    alert("Please enter a task!");
+    return;
+  }
 
   if (task) {
     newTask = task.name;
@@ -55,7 +59,7 @@ function toDoList(task) {
 
 function updateLocalStorage() {
   const liEls = document.querySelectorAll("li");
-  list = [];
+  let list = [];
   liEls.forEach((liEl) => {
     list.push({
       name: liEl.innerText,
